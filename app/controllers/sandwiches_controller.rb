@@ -7,6 +7,7 @@ class SandwichesController < ApplicationController
 
     def show
       @sandwich = Sandwich.find(params[:id])
+      @user = User.find(session[:user_id].last)
     end
 
     def new

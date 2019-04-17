@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.find(session[:user_id].last)
   end
 
   def new
@@ -10,24 +11,21 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    # byebug
+    @user = User.find(session[:user_id].last)
     # @sand_ingred = SandwichIngredient.new
   end
 
-  def welcome
-    @user = User.new
-  end
-
-  def login
-    # byebug
-    @user = User.create(user_params)
-    redirect_to restaurants_path
-  end
-
+  # def welcome
+  #   @user = User.new
+  # end
 
   def create
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    # byebug
+    session[:user_id] ||= []
+    session[:user_id] << @user.id
+    redirect_to restaurants_path
     #code
   end
 
