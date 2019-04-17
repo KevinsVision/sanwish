@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'faker'
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'irbtools', require: 'irbtools/binding'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
