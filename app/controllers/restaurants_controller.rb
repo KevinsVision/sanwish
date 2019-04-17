@@ -14,7 +14,7 @@ class RestaurantsController < ApplicationController
     # @restaurant_ingredients = res.ingredients
   end
 
-  def select_ingredients
+  # def select_ingredients
     # byebug
     #
     # @restaurant_ingredients = Restaurant.find(params[:id]).ingredients
@@ -22,11 +22,12 @@ class RestaurantsController < ApplicationController
     # @restaurant_ingredients = res.ingredients
     # @ingredients = Ingredient.all
 
-  end
+  # end
 
   def create_sandwich
+    # byebug
     @user = User.find_or_create_by({name: params[:user_name]})
-    @sandwich = Sandwich.new({name: params[:recipe_name], user_id: @user.id, ingredient_ids: params[:ingredient][:id]})
+    @sandwich = Sandwich.new({name: params[:name], user_id: @user.id, ingredient_ids: params[:ingredient][:id]})
     if @sandwich.save
       redirect_to sandwich_path(@sandwich)
     else

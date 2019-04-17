@@ -1,8 +1,10 @@
 <h1>Sandwich:<%=  %><br></h1>
 <h3> <%= @sandwich.name %> </h3>
 
-<% @sandwich.ingredients.each do |ingredient| %>
-    <%= ingredient.name %>
+<h3>Ingredients</h3>
+<% @sandwich.ingredients.each do |ingredient|  %>
+  <li><%= ingredient.name %></li>
 <% end %>
 
-<%# <%= @sandwich.user_id %>
+<%= button_to "Delete Sandwich", {}, { method: :delete } %>
+<%= link_to "Edit", edit_sandwich_path(@sandwich) %>

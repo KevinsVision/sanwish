@@ -11,20 +11,26 @@ class SandwichesController < ApplicationController
 
     def new
       @sandwich = Sandwich.new
-      #code
     end
 
     def create
       @sandwich = Sandwich.create(sandwich_params)
       redirect_to sandwich_path(@sandwich)
-      #code
     end
 
     def edit
-      #code
+      @sandwich = Sandwich.find(params[:id])
+      @ingredients = Ingredient.all
     end
 
     def update
+      @sandwich = Sandwich.find(params[:id])
+      @sandwich.update(({name: params[:sandwich][:name], ingredient_ids: params[:sandwich][:id]}))
+      if @sandwich
+        redirect_to sandwich_path(@sandwich)
+      else
+        render :new
+      end
       #code
     end
 
@@ -38,6 +44,12 @@ class SandwichesController < ApplicationController
     end
 
 # user_id, sanwihch_name, ingredienta_id
+    def destroy
+      @sandwich = Sandwich.find(params[:id])
+      @sandwich.destroy
+      redirect_to restaurants_path
+    end
+
 end
 
 

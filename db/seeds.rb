@@ -32,7 +32,7 @@ SandwichIngredient.destroy_all
 
     ingredient = Ingredient.create(
         name: Faker::Food.ingredient,
-        quantit[]y: rand(0..50)
+        quantity: rand(0..50)
     )
 
     SandwichIngredient.create(
