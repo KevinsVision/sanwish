@@ -1,5 +1,7 @@
+<h1> Here are all the sandwiches available to order: </h1>
+
 <ol>
   <% @sandwiches.each do |sandwich| %>
-      <a href= <%= sandwich_path(sandwich) %> ><li><%= sandwich.name %></li></a>
+      <a href= <%= sandwich_path(sandwich) %> ><br><li><%= sandwich.name %></li></a>
   <% end %>
 </ol>

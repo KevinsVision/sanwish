@@ -1,4 +1,8 @@
-<h1>Show page</h1>
+<h1>Sandwich:<%=  %><br></h1>
+<h3> <%= @sandwich.name %> </h3>
 
-<%= @sandwich.name %><br>
-<%= @sandwich.user_id %>
+<% @sandwich.ingredients.each do |ingredient| %>
+    <%= ingredient.name %>
+<% end %>
+
+<%# <%= @sandwich.user_id %>

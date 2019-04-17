@@ -33,9 +33,11 @@ class SandwichesController < ApplicationController
     end
 
     def sandwich_params
-      params.require(:sandwich).permit(:name, :user_id)
+      params.require(:sandwich).permit(:name, :ingredient_id, :user_id)
       #code
     end
 
-
+# user_id, sanwihch_name, ingredienta_id
 end
+
+
