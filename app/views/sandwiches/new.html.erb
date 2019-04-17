@@ -1,0 +1,7 @@
+<%= form_for @sandwich do |f| %>
+  <%= f.label :name %>
+  <%= f.collection_select :ingredient_id, Sandwich.all, :id, :name %>
+  <%= f.label :ingredient_name %>
+  <%= f.collection_select :sandwich_id, Ingredient.all, :id, :name %>
+  <%= f.submit %>
+<% end %>

@@ -1,0 +1,14 @@
+<h1>Welcome to <%= @restaurant.name %>!</h1>
+
+<strong><p>Please, find below the information about your profile!</p></strong>
+<li><%= @restaurant.name %></li>
+<li><%= @restaurant.location %></li>
+
+
+<ul>
+<%= form_tag('/restaurants/create_sandwich') do %>
+<%= label_tag 'Ingredients' %>
+  <li><%= collection_check_boxes(:ingredient, :id, @restaurant.ingredients, :id, :name) %></li>
+  <%= submit_tag 'Create' %>
+<% end %>
+</ul>
