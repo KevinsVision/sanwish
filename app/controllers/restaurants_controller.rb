@@ -25,8 +25,8 @@ class RestaurantsController < ApplicationController
   # end
 
   def create_sandwich
+    @user = User.last
     # byebug
-    @user = User.find_or_create_by({name: params[:user_name]})
     @sandwich = Sandwich.new({name: params[:name], user_id: @user.id, ingredient_ids: params[:ingredient][:id]})
     if @sandwich.save
       redirect_to sandwich_path(@sandwich)

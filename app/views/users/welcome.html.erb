@@ -1,0 +1,15 @@
+<h2>Please Sign In Here!</h2>
+
+<%= form_for @user, url: '/login' do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :surname %>
+  <%= f.text_field :surname %><br>
+  <%= f.label :age %>
+  <%= f.number_field :age %><br>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %><br>
+  <%= f.submit "Sign In!" %><br>
+<% end %>
