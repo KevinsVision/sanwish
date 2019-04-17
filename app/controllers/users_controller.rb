@@ -4,15 +4,27 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show
-    @user = User.find(params[:id])
-    @sand_ingred = SandwichIngredient.new
-  end
-
   def new
     @user = User.new
     #code
   end
+
+  def show
+    @user = User.find(params[:id])
+    # @sand_ingred = SandwichIngredient.new
+  end
+
+  def welcome
+    @user = User.new
+  end
+
+  def login
+    # byebug
+    @user = User.create(user_params)
+    redirect_to restaurants_path
+  end
+
+
 
   def create
     @user = User.create(user_params)

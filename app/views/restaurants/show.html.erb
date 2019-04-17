@@ -5,6 +5,7 @@
 
 
 <%= form_tag('/restaurants/create_sandwich') do %>
+<%= hidden_field :user, :user_id, value: @user.id %>
 <%= label_tag :name %>
 <%= text_field_tag :name %>
   <%= label_tag 'Please select the ingredients for your sandwich below:' %><br>
