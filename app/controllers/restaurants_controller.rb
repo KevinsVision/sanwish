@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @user = User.find(session[:user_id].last)
   end
 
   def show
@@ -36,7 +37,7 @@ class RestaurantsController < ApplicationController
     if @sandwich.save
       redirect_to sandwich_path(@sandwich)
     else
-      render :new
+      redirect_to restaurants_path
     end
   end
 

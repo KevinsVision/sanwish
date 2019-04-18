@@ -26,7 +26,7 @@ class SandwichesController < ApplicationController
 
     def update
       @sandwich = Sandwich.find(params[:id])
-      @sandwich.update(({name: params[:sandwich][:name], ingredient_ids: params[:sandwich][:id]}))
+      @sandwich.update(({name: params[:sandwich][:name], ingredient_ids: params[:sandwich][:ingredient_ids]}))
       if @sandwich
         redirect_to sandwich_path(@sandwich)
       else

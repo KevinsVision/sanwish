@@ -1,9 +1,10 @@
-<h1>All the Restaurants</h1>
-
-
+<h1>Welcome To The Main page</h1>
 
 <ol>
+  Please, select a restaurant:
   <% @restaurants.each do |restaurant| %>
-      <a href=<%= restaurant_path(restaurant) %>><li><%= restaurant.name %></li></a>
+    <a href=<%= restaurant_path(restaurant) %>><li><%= restaurant.name %></li></a>
   <% end %>
 </ol>
+
+<button type="button" name="button"><%= link_to 'Take Me To My Profile', @user %></button>

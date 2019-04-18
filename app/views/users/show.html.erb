@@ -6,3 +6,13 @@
 <li><%= @user.age %></li>
 <li><%= @user.email %></li>
 <li><%= @user.phone_number %></li>
+
+<ol>
+  <h3>Here is the list of your sandwiches:</h3>
+  <li><% @user.sandwiches.each do |sandwich| %></li>
+    <li><%= sandwich.name %> <%= button_to "Delete My Sandwich", { action: "destroy", id: sandwich.id, controller: "sandwiches" }, method: :delete %>
+</li>
+  <% end %>
+</ol>
+
+<button type="button" name="button"><%= link_to 'Still hungry???', restaurants_path %></button>
