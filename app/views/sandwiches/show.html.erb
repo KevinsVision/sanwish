@@ -9,5 +9,6 @@
 
 <div class="">
   <%= button_to "Delete Sandwich", {}, { method: :delete } %> <button type="button" name="button"><%= link_to "Edit My Sandwich", edit_sandwich_path(@sandwich) %></button>
+  <button type="button" name="button"><%= link_to 'Not enough, need one more!!!', restaurants_path %></button>
 </div>
 <button type="button" name="button"><%= link_to 'Take Me To My Profile', @user %></button>
