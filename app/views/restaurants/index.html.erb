@@ -1,3 +1,15 @@
+<h1>Welcome!</h1>
+
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<h2>Here are all the Restaurants</h2>
+
 <h1>Welcome To The Main page</h1>
 
 <ol>

@@ -3,7 +3,6 @@
 <p><strong>Restaurant located in:</strong> <%= @restaurant.location %></p>
 
 
-
 <%= form_tag('/restaurants/create_sandwich') do %>
   <%= hidden_field :user, :user_id, value: @user.id %>
   <%= label_tag :name %>

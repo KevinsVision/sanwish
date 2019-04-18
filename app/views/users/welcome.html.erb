@@ -1,5 +1,13 @@
 <h2>Please Sign In Here!</h2>
 
+<% if flash[:errors] %>
+  <ul>
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_for @user, url: '/login' do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
@@ -10,6 +18,7 @@
   <%= f.label :email %>
   <%= f.text_field :email %><br>
   <%= f.label :phone_number %>
-  <%= f.text_field :phone_number %><br>
+  <input type="number" name="user[phone_number]" id="user_phone_number">
+
   <%= f.submit "Sign In!" %><br>
 <% end %>

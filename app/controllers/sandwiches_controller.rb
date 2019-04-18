@@ -10,8 +10,16 @@ class SandwichesController < ApplicationController
       @user = User.find(session[:user_id].last)
     end
 
+    # def new
+    #   @sandwich = Sandwich.new
+    # end
+
     def new
-      @sandwich = Sandwich.new
+      if flash[:data]
+        @sandwich = Sandwich.new(flash[:data])
+      else 
+        @sandwich = Sandwich.new
+      end
     end
 
     def create
@@ -35,6 +43,16 @@ class SandwichesController < ApplicationController
       #code
     end
 
+    def delete
+      #code
+    end
+
+    def sandwich_params
+      params.require(:sandwich).permit(:name, :ingredient_id, :user_id)
+      #code
+    end
+
+# user_id, sanwihch_name, ingredienta_id
     def destroy
       @sandwich = Sandwich.find(params[:id])
       @sandwich.destroy

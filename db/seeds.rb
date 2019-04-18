@@ -16,7 +16,7 @@ Restaurant.destroy_all
 Stock.destroy_all
 SandwichIngredient.destroy_all
 
-10.times do 
+100.times do 
    user = User.create(
         name: Faker::Name.first_name,
         surname: Faker::Name.last_name,
