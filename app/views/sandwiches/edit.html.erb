@@ -1,8 +1,14 @@
 <%= form_for @sandwich do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
+    <br>
+
   <%= f.label :Ingredients %>
+    <br>
+
   <%= f.collection_check_boxes(:id, @ingredients, :id, :name) %>
+    <br>
+
   <%= f.submit %>
 <% end %>
 
@@ -14,12 +20,3 @@
 
 
 
-<%# <% if false %> %>
-
-<%# <%= form_tag edit_sandwich_path(@sandwich) do %> %>
-<%# <%= label_tag 'Please select the ingredients for your sandwich below:' %><br> %>
-  <%# <%= collection_check_boxes(:ingredient, :id, @restaurant.ingredients, :id, :name) %><br> %>
-  <%# <%= submit_tag 'Create' %> %>
-<%# <% end %> %>
-
-<%# <% end %> %>

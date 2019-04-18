@@ -6,11 +6,19 @@ class SandwichesController < ApplicationController
     end
 
     def show
-      @sandwich = Sandwich.find(params[:id])
+      @sandwich = Sandwich.find( params[:id])
     end
 
+    # def new
+    #   @sandwich = Sandwich.new
+    # end
+
     def new
-      @sandwich = Sandwich.new
+      if flash[:data]
+        @sandwich = Sandwich.new(flash[:data])
+      else 
+        @sandwich = Sandwich.new
+      end
     end
 
     def create
@@ -51,5 +59,3 @@ class SandwichesController < ApplicationController
     end
 
 end
-
-

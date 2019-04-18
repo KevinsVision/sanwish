@@ -8,10 +8,18 @@ class RestaurantsController < ApplicationController
     @user = User.new
     @sandwich = Sandwich.new
   end
+  # def new
+  #   @sandwich = Sandwich.new
+  #   # res = Restaurant.find(params[:id])
+  #   # @restaurant_ingredients = res.ingredients
+  # end
+
   def new
-    @sandwich = Sandwich.new
-    # res = Restaurant.find(params[:id])
-    # @restaurant_ingredients = res.ingredients
+    if flash[:data]
+      @sandwich = Sandwich.new(flash[:data])
+    else 
+      @sandwich = Sandwich.new
+    end
   end
 
   # def select_ingredients
@@ -25,13 +33,13 @@ class RestaurantsController < ApplicationController
   # end
 
   def create_sandwich
-    # byebug
-    @user = User.find_or_create_by({name: params[:user_name]})
+    @user = User.last
     @sandwich = Sandwich.new({name: params[:name], user_id: @user.id, ingredient_ids: params[:ingredient][:id]})
     if @sandwich.save
       redirect_to sandwich_path(@sandwich)
     else
-      render :new
+      flash[:errors] = @sandwich.errors.full_messages
+      redirect_to restaurants_path
     end
   end
 

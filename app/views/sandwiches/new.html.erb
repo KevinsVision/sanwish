@@ -1,1 +1,10 @@
-
+<%= form_for @sandwich do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :user_id %>
+  <%= f.text_field :name %>
+  <%= f.collection_select :ingredient_id, Sandwich.all, :id, :name %>
+  <%= f.label :ingredient_name %>
+  <%= f.collection_select :sandwich_id, Ingredient.all, :id, :name %>
+  <%= f.submit %>
+<% end %>
