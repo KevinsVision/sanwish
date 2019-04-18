@@ -6,7 +6,8 @@ class SandwichesController < ApplicationController
     end
 
     def show
-      @sandwich = Sandwich.find( params[:id])
+      @sandwich = Sandwich.find(params[:id])
+      @user = User.find(session[:user_id].last)
     end
 
     # def new
@@ -33,7 +34,7 @@ class SandwichesController < ApplicationController
 
     def update
       @sandwich = Sandwich.find(params[:id])
-      @sandwich.update(({name: params[:sandwich][:name], ingredient_ids: params[:sandwich][:id]}))
+      @sandwich.update(({name: params[:sandwich][:name], ingredient_ids: params[:sandwich][:ingredient_ids]}))
       if @sandwich
         redirect_to sandwich_path(@sandwich)
       else

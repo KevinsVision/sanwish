@@ -1,6 +1,9 @@
 class RestaurantsController < ApplicationController
+  before_action :get_user
+
   def index
     @restaurants = Restaurant.all
+    @user = User.find(session[:user_id].last)
   end
 
   def show
@@ -33,8 +36,12 @@ class RestaurantsController < ApplicationController
   # end
 
   def create_sandwich
-    @user = User.last
-    @sandwich = Sandwich.new({name: params[:name], user_id: @user.id, ingredient_ids: params[:ingredient][:id]})
+    @user = User.find(session[:user_id].last)
+    # @user.map do |id|
+    #   User.find(id)
+    # end
+    # byebug
+    @sandwich = Sandwich.new({name: params[:name], user_id: @user.id, ingredient_ids: params[:ingredient][:ingredient_ids]})
     if @sandwich.save
       redirect_to sandwich_path(@sandwich)
     else

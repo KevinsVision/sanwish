@@ -1,22 +1,7 @@
 <%= form_for @sandwich do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-    <br>
-
   <%= f.label :Ingredients %>
-    <br>
-
-  <%= f.collection_check_boxes(:id, @ingredients, :id, :name) %>
-    <br>
-
+  <%= f.collection_check_boxes(:ingredient_ids, @ingredients, :id, :name) %>
   <%= f.submit %>
 <% end %>
-
-
-
-
-
-
-
-
-
